@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.HomePage"
+    Background="#F1E0E6">
+
+
+
+    <Grid RowDefinitions="*, Auto">
+        <!-- İçerik + alt bar -->
+
+        <!-- GÖREV ALANI -->
+        <ScrollView Grid.Row="0">
+            <Grid ColumnDefinitions="*,*"
+                  Padding="10">
+
+                <!-- Günlük Görev Kutusu -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="#FFCDD2"
+                       CornerRadius="10"
+                       Padding="10"
+                       Margin="5">
+                </Frame>
+
+                <StackLayout Padding="20">
+
+                    <HorizontalStackLayout Padding="10" Spacing="10">
+
+                        <Label Text="Tarih:"
+           FontSize="14"
+           TextColor="Black"
+           VerticalOptions="Center" />
+
+                        <DatePicker x:Name="TarihSecici"
+                                   TextColor="Black"
+                                    
+                Format="dd.MM.yyyy"
+                FontSize="14"
+                WidthRequest="130"
+                />
+
+                        <Button Text="Kaydet"
+            FontSize="14"
+            Clicked="OnTarihiKaydetClicked"
+            BackgroundColor="#FFCDD2"
+            TextColor="Black"
+            Padding="10,5"
+            />
+
+                        <Label x:Name="SecilenTarihLabel"
+           FontSize="14"
+           TextColor="Black"
+           VerticalOptions="Center"
+           />
+
+                    </HorizontalStackLayout>
+
+
+
+
+                    <Frame BackgroundColor="#FFCDD2" CornerRadius="10" Padding="5" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label x:Name="GunlukHedefLabel" Text="Bugün Ne Yapacaksın?" TextColor="Black" FontSize="18" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                <Button x:Name="BtnAddTask1" Text="+" FontSize="20" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="OnAddTaskClicked" AutomationId="TaskListContainer"/>
+                            </StackLayout>
+                            <StackLayout x:Name="TaskListContainer" Padding="20" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <HorizontalStackLayout HorizontalOptions="Center" >
+                        <Button x:Name="btnExceleAktar" Clicked="btnExceleAktar_Clicked" BackgroundColor="DarkGreen" TextColor="White" Text="Aktar"></Button>
+                    </HorizontalStackLayout>
+
+                    <!-- Pop-up -->
+                    <Grid x:Name="TaskPopup"
+                          IsVisible="False"
+                          BackgroundColor="#f7bae6"
+                          Padding="20"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand"
+                          WidthRequest="300"
+                          HeightRequest="250"
+                          Margin="20"
+                          Opacity="0.95">
+                        <Frame BackgroundColor="#f7bae6" CornerRadius="10" Padding="15" HasShadow="True">
+                            <StackLayout>
+                                <Label Text="Yeni Görev Ekle" TextColor="Black" FontSize="18" HorizontalOptions="Center"/>
+                                <Entry x:Name="TaskEntry" TextColor="Black" Placeholder="Görev giriniz..." HorizontalOptions="FillAndExpand"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                    <Button Text="Ekle" BackgroundColor="Green" TextColor="White" Clicked="OnTaskAdded" HorizontalOptions="FillAndExpand"/>
+                                    <Button Text="Kapat" BackgroundColor="Red" TextColor="White" Clicked="OnCancel" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+
+                <!-- Haftalık Hedefler -->
+                <Grid Grid.Column="1" Padding="5" WidthRequest="800" HeightRequest="300" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                    <Frame Background="#FFCDD2" CornerRadius="10" Padding="10" Margin="5"/>
+
+
+
+                    <StackLayout Padding="10">
+                        <Label Text="Haftanın Hedefleri" TextColor="Black" FontSize="15" HorizontalOptions="Center"/>
+                        <Button x:Name="BtnAddTask2" Text="+" FontSize="20" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_4" AutomationId="TaskListContainer1"/>
+                        <StackLayout x:Name="TaskListContainer1" Padding="10"/>
+                    </StackLayout>
+                </Grid>
+
+                
+                
+                
+                <!-- Aylık Hedefler -->
+                <Grid Grid.Column="1" Padding="5" WidthRequest="800" HeightRequest="300" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    
+                    
+                    <Frame Background="#FFCDD2" CornerRadius="10" Padding="10" Margin="5"/>
+                   
+                    
+                    
+
+
+                    <StackLayout Padding="10">
+                            <Label Text="Ayın Hedefleri" TextColor="Black" FontSize="15" HorizontalOptions="Center"/>
+                            <Button x:Name="BtnAddTask3" Text="+" FontSize="20" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_5" AutomationId="TaskListContainer2"/>
+                            <StackLayout x:Name="TaskListContainer2" Padding="10"/>
+                        </StackLayout>  
+                </Grid>
+
+                
+                
+                
+                
+                <!-- Yıllık Hedefler -->
+                <Grid Grid.Column="1" Padding="5" WidthRequest="800" HeightRequest="300" VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                    <Frame Background="#FFCDD2" CornerRadius="10" Padding="10" Margin="5"/>
+
+                 
+
+                    <StackLayout Padding="10">
+                        
+                        <Label Text="Bu Yılın Hedefleri" TextColor="Black" FontSize="15" HorizontalOptions="Center"/>
+                        <Button x:Name="BtnAddTask4" Text="+" FontSize="20" BackgroundColor="Transparent" TextColor="Black" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked_6" AutomationId="TaskListContainer3"/>
+                        <StackLayout x:Name="TaskListContainer3" Padding="10"/>
+                    </StackLayout>
+                    
+                </Grid>
+            </Grid>
+        </ScrollView>
+
+        <!-- ALT BUTONLAR (Navigasyon gibi) -->
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal"
+                     Padding="10"
+                     Spacing="20"
+                     BackgroundColor="#FFCDD2"
+                     HeightRequest="60"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="End">
+            <Button Text="Arama Yap"
+                    Clicked="OnSearchButtonClicked"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+            <Button Text="Arkadaşlar"
+                    Clicked="OnFriendRequestsButtonClicked"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+            <Button Text="Profil"
+            Clicked="OnProfileButtonClicked"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center" />
+            
+        </StackLayout>
+        
+        
+
+    </Grid>
+</ContentPage>

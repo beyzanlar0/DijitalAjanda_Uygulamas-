@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1"
+    xmlns:view="clr-namespace:MauiApp1"
+    Shell.FlyoutBehavior="Disabled"
+    Title="MauiApp1">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:SignInPage}"
+        Route="SignIn" />
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate local:SignUpPage}"
+    Route="SignUp" />
+
+
+
+    <ShellItem Title="HomePage"  Route="HomePage">
+        <ShellContent ContentTemplate="{DataTemplate local:HomePage}">
+            <NavigationPage>
+                <x:Arguments>
+                    <local:HomePage />
+                </x:Arguments>
+            </NavigationPage>
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Title="Arkadaş Ekle"  Route="AddFriendPage">
+        <ShellContent  ContentTemplate="{DataTemplate local:AddFriendPage}">
+            <NavigationPage>
+                <x:Arguments>
+                    <local:AddFriendPage />
+                </x:Arguments>
+            </NavigationPage>
+        </ShellContent>
+    </ShellItem>
+
+  
+
+    <ShellItem Title="Profil"  Route="ProfilePage" >
+        <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" >
+            <NavigationPage>
+                <x:Arguments>
+                    <local:ProfilePage />
+                </x:Arguments>
+            </NavigationPage>
+        </ShellContent>
+    </ShellItem>
+
+    <ShellItem Title="Chat"  Route="Chat" >
+        <ShellContent ContentTemplate="{DataTemplate local:Chat}" >
+            <NavigationPage>
+                <x:Arguments>
+                    <local:Chat />
+                </x:Arguments>
+            </NavigationPage>
+        </ShellContent>
+    </ShellItem>
+
+</Shell>

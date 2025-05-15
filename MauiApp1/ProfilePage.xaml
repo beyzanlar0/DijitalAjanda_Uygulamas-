@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.ProfilePage"
+             Title="Profil">
+
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- Kullanıcı Bilgileri -->
+            <Frame BackgroundColor="#FFCDD2" CornerRadius="15" Padding="20">
+                <StackLayout Spacing="10">
+
+                    <Label Text="Ad Soyad:" FontSize="18" TextColor="Black"/>
+                    <Label x:Name="NameSurnameLabel" Text="Ad Soyad" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+
+                    <Label Text="Kullanıcı Adı:" FontSize="18" TextColor="Black"/>
+                    <Label x:Name="UserNameLabel" Text="Kullanıcı Adı" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                    
+                    <Label Text="Telefon:" FontSize="18" TextColor="Black"/>
+                    <Label x:Name="PhoneLabel" Text="Telefon Numarası" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                    
+                    <Label Text="E-mail:" FontSize="18" TextColor="Black"/>
+                    <Label x:Name="EmailLabel" Text="kullanici@mail.com" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Profili Düzenle Butonu -->
+            <Button Text="Profili Düzenle"
+                    BackgroundColor="#F06292"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="50"
+                    Clicked="OnEditProfileClicked" />
+
+            <Button Text="Çıkış Yap"
+        BackgroundColor="#F06292"
+        TextColor="White"
+        CornerRadius="20"
+        HeightRequest="50"
+        Clicked="OnLogoutClicked" />
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

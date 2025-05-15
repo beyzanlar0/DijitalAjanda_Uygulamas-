@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.SearchPage"
+             Title="SearchPage">
+
+    <StackLayout Padding="20">
+       
+        <Entry x:Name="searchEntry" 
+               Placeholder="Kullanıcı adı veya e-posta ile ara"
+               VerticalOptions="CenterAndExpand" />
+
+      
+        <Button Text="Ara"
+                Clicked="OnSearchButtonClicked_1"
+                HorizontalOptions="Center" />
+
+       
+        <ListView x:Name="searchResultsList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding UserName}"  FontSize="16" 
+                                   VerticalOptions="Center"
+                                    HorizontalOptions="StartAndExpand"/>
+                            <Button Text="Arkadaş Ekle" 
+                                    Clicked="OnAddFriendButtonClicked" 
+                                    CommandParameter="{Binding UserName}" 
+                                    HorizontalOptions="End" />
+                            
+                            <Button Text="Chat"
+            Clicked="OnChatButtonClicked_2"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

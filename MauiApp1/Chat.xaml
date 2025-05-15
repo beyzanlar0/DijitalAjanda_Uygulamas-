@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Chat"
+             Title="Chat">
+    <VerticalStackLayout Padding="10">
+
+        <ListView x:Name="MessagesList" HeightRequest="400">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Sender}" Detail="{Binding Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="MessageEntry" Placeholder="Mesaj yaz..." />
+        <Button Text="Gönder" Clicked="OnSendClicked" />
+    </VerticalStackLayout>
+</ContentPage>
